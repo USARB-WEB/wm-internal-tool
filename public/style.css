@@ -1,0 +1,97 @@
+.title{
+    font-size: 36px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.title span button{
+    font-size: 16px;
+    width: 2em;
+}
+
+.title span button.selected{
+    background-color: cornflowerblue;
+}
+
+.warning{
+    background-color: lightpink;
+}
+
+.scale-lines{
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+.scale-lines .line{
+    border-bottom: 2px dashed gray;
+    width: 100%;
+    height: 25px;
+    position: relative;
+}
+
+#columns{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr );   
+    column-gap: 1em;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+#titles{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr );   
+    column-gap: 1em;
+}
+
+#titles .title{
+    text-align: center;
+}
+
+#columns .column{
+    border: 1px solid blueviolet;
+    height: 500px;
+    padding:0 1em;
+}
+
+#columns .column .title{
+    font-size: 28px;
+}
+
+#columns .column .range{
+    outline: 1px solid green;
+    height: 100px;
+    background: lightgoldenrodyellow;
+    position: relative;
+}
+
+#columns #new .range{
+    background: lightgreen;
+
+}
+
+#columns .column .range .start, 
+#columns .column .range .end
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 23px;
+    height: 25px;
+
+}
+
+#columns .column .range .company-name{
+    font-size: 22px;
+    height: 30px;
+    padding-left: 1em;
+}
+
+#columns .column .range .company-address{
+    font-size: 16px;
+    font-style: italic;
+    height: 20px;
+}
+
+.disabled-range{
+    opacity: 0.6;
+}

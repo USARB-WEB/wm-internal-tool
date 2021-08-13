@@ -1,0 +1,29 @@
+{
+    "new": [
+        {
+            "companyName": "Microsoft super puper duper company INC",
+            "companyAddress": "United States of America, FLorida, Miami, 12345",
+            "start": "192.168.0.1",
+            "end": "192.168.0.100",
+            "offset": 150
+        }
+    ],
+    "existing": [
+        {
+            "companyName": "Microsoft super puper duper company INC",
+            "companyAddress": "United States of America, FLorida, Miami, 12345",
+            "start": "192.168.0.1",
+            "end": "192.168.0.100",
+            "offset": 100,
+            "toUse": true
+        },
+        {
+            "companyName": "Microsoft super puper duper company INC",
+            "companyAddress": "United States of America, FLorida, Miami, 12345",
+            "start": "192.168.0.1",
+            "end": "192.168.0.100",
+            "offset": 125,
+            "toUse": true
+        }
+    ]
+}
