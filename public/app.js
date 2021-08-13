@@ -7,8 +7,8 @@ var app = new Vue({
             lines: 20,
             lineHeight: 25
         },
-        apiURL: "http://127.0.0.1:5500/db/",
-        // apiURL: "https://raw.githubusercontent.com/sergiuchilat/wm-internal-tool/master/db/",
+        // apiURL: "http://127.0.0.1:5500/db/",
+        apiURL: "https://raw.githubusercontent.com/sergiuchilat/wm-internal-tool/master/db/",
         ranges: {}
     },
     mounted(){
