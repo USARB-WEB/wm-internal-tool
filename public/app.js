@@ -43,7 +43,8 @@ var app = new Vue({
             this.selectedCase = caseID;
             try{
                 let response = await fetch(`https://raw.githubusercontent.com/sergiuchilat/wm-internal-tool/master/db/case-${caseID}.json`);
-                let ranges = await response.json();
+                this.ranges = Object.assign({}, await response.json());
+                
             }catch(e){
                 console.log(e);
             }

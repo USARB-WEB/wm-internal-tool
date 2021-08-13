@@ -5,7 +5,7 @@
             "companyAddress": "United States of America, FLorida, Miami, 12345",
             "start": "192.168.0.1",
             "end": "192.168.0.100",
-            "offset": 150
+            "offset": 250
         }
     ],
     "existing": [
@@ -14,7 +14,7 @@
             "companyAddress": "United States of America, FLorida, Miami, 12345",
             "start": "192.168.0.1",
             "end": "192.168.0.100",
-            "offset": 100,
+            "offset": 150,
             "toUse": true
         },
         {
