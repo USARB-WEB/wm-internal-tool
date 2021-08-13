@@ -7,12 +7,12 @@ var app = new Vue({
             lines: 20,
             lineHeight: 25
         },
-        //apiURL: "http://127.0.0.1:5500/db/",
-        apiURL: "https://raw.githubusercontent.com/sergiuchilat/wm-internal-tool/master/db/",
+        apiURL: "http://127.0.0.1:5500/db/",
+        // apiURL: "https://raw.githubusercontent.com/sergiuchilat/wm-internal-tool/master/db/",
         ranges: {}
     },
     mounted(){
-        this.selectCase(5);
+        this.selectCase(0);
     },
     methods: {
         calculateOffset(start){
@@ -21,7 +21,22 @@ var app = new Vue({
         calculateHeight(start, end) {
             return this.scale.lineHeight * ( end -  start);
         },
+        generateResults(){
+            const results = [];
+
+            this.ranges.existing.forEach(existingRange => {  
+                this.ranges.new.forEach(newRange => {  
+                    if(existingRange.start < newRange.start){
+
+                    }
+                }); 
+            });
+            console.log(results);
+        },
         async selectCase(caseID){
+            if(!caseID){
+                return;
+            }
             this.selectedCase = caseID;
             try{
                 let response = await fetch(`${this.apiURL}case-${caseID}.json`);
@@ -30,7 +45,7 @@ var app = new Vue({
                 this.ranges.existing = this.ranges.existing.map(el => {
                     return {
                         ...el,
-                        start: this.calculateOffset(el.start),
+                        startOffset: this.calculateOffset(el.start),
                         height: this.calculateHeight(el.start, el.end)
                     }
                 });
@@ -38,10 +53,11 @@ var app = new Vue({
                 this.ranges.new = this.ranges.new.map(el => {
                     return {
                         ...el,
-                        start: this.calculateOffset(el.start),
+                        startOffset: this.calculateOffset(el.start),
                         height: this.calculateHeight(el.start, el.end)
                     }
                 });
+                this.generateResults();
                 
             }catch(e){
                 console.log(e);

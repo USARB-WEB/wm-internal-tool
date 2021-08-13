@@ -10,58 +10,73 @@
 <body>
     <div id="app">
         <div class="title warning">
-            <span>Warning! New IP range intersects 2 existing IP ranges</span>
+            <span>Warning! New IP range intersects with existings</span>
             <span>
                 <button 
                     v-for="i in totalCases" 
                     :class="{selected: i === selectedCase}"
                     @click="selectCase(i)"
+                    title="Click to select a use case"
                 >{{ i }}</button>        
             </span>
         </div>
-
-        <div id="titles">
-            <div class="title">Existing ranges</div>
-            <div class="title">New range</div>
-            <div class="title">Resulting ranges</div>
-        </div>
-        <div class="scale">
-            <div class="scale-lines">
-                <div class="line" v-for="i in scale.lines"></div>
+        <div class="content" v-if="selectedCase">
+            <div id="titles">
+                <div class="title">Existing ranges</div>
+                <div class="title">New range</div>
+                <div class="title">Resulting ranges</div>
             </div>
-            <div id="columns">
-                <div class="column" id="existing">
-                    <div 
-                        class="range" 
-                        :class="{'disabled-range': !range.toUse}" 
-                        v-for="range of ranges.existing" 
-                        :style="{top: (range.start - 2) + 'px', height: range.height + 'px'}"
-                    >
-                        <div class="start">{{ range.startIP }}</div>
-                        <div class="company-name">
-                            <input type="checkbox" v-model="range.toUse">
-                            {{ range.companyName }}
+            <div class="scale">
+                <div class="scale-lines">
+                    <div class="line" v-for="i in scale.lines"></div>
+                </div>
+                <div id="columns">
+                    <div class="column" id="existing">
+                        <div 
+                            class="range" 
+                            :class="{'disabled-range': !range.toUse}" 
+                            v-for="range of ranges.existing" 
+                            :style="{top: (range.startOffset - 2) + 'px', height: range.height + 'px'}"
+                            @click="range.toUse = !range.toUse"
+                            title="Click to enable/disable selection"
+                        >
+                            <div class="start">{{ range.startIP }}</div>
+                            <div class="company-name">
+                                {{ range.companyName }}
+                            </div>
+                            <div class="company-address">{{ range.companyAddress }}</div>
+                            <div class="end">{{ range.endIP }}</div>
                         </div>
-                        <div class="company-address">{{ range.companyAddress }}</div>
-                        <div class="end">{{ range.endIP }}</div>
                     </div>
-                </div>
-                <div class="column" id="new">
-                    <div 
-                        class="range" 
-                        v-for="range of ranges.new" 
-                        :style="{top: (range.start - 2) + 'px', height: range.height + 'px'}"
-                    >
-                        <div class="start">{{ range.startIP }}</div>
-                        <div class="company-name">{{ range.companyName }}</div>
-                        <div class="company-address">{{ range.companyAddress }}</div>
-                        <div class="end">{{ range.endIP }}</div>
+                    <div class="column" id="new">
+                        <div 
+                            class="range" 
+                            v-for="range of ranges.new" 
+                            :style="{top: (range.startOffset - 2) + 'px', height: range.height + 'px'}"
+                        >
+                            <div class="start">{{ range.startIP }}</div>
+                            <div class="company-name">{{ range.companyName }}</div>
+                            <div class="company-address">{{ range.companyAddress }}</div>
+                            <div class="end">{{ range.endIP }}</div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="column" id="result"></div>
-            </div>            
+                    
+                    <div class="column" id="result">
+                        <div 
+                            class="range" 
+                            v-for="range of ranges.new" 
+                            :style="{top: (range.startOffset - 2) + 'px', height: range.height + 'px'}"
+                        >
+                            <div class="start">{{ range.startIP }}</div>
+                            <div class="company-name">{{ range.companyName }}</div>
+                            <div class="company-address">{{ range.companyAddress }}</div>
+                            <div class="end">{{ range.endIP }}</div>
+                        </div>
+                    </div>
+                </div>            
+            </div>
         </div>
+        <div v-else>Select one of {{totalCases}} cases first</div>        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
