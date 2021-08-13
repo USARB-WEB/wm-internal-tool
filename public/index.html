@@ -13,16 +13,13 @@
             <span>Warning! New IP range intersects 2 existing IP ranges</span>
             <span>
                 <button 
-                    v-for="i in 10" 
+                    v-for="i in totalCases" 
                     :class="{selected: i === selectedCase}"
                     @click="selectCase(i)"
                 >{{ i }}</button>        
             </span>
         </div>
 
-        <div>
-            {{ranges}}
-        </div>
         <div id="titles">
             <div class="title">Existing ranges</div>
             <div class="title">New range</div>
@@ -34,22 +31,31 @@
             </div>
             <div id="columns">
                 <div class="column" id="existing">
-                    <div class="range" :class="{'disabled-range': !range.toUse}" v-for="range of ranges.existing" :style="{top: (range.offset - 2) + 'px'}">
-                        <div class="start">{{ range.start }}</div>
+                    <div 
+                        class="range" 
+                        :class="{'disabled-range': !range.toUse}" 
+                        v-for="range of ranges.existing" 
+                        :style="{top: (range.start - 2) + 'px', height: range.height + 'px'}"
+                    >
+                        <div class="start">{{ range.startIP }}</div>
                         <div class="company-name">
                             <input type="checkbox" v-model="range.toUse">
                             {{ range.companyName }}
                         </div>
                         <div class="company-address">{{ range.companyAddress }}</div>
-                        <div class="end">{{ range.end }}</div>
+                        <div class="end">{{ range.endIP }}</div>
                     </div>
                 </div>
                 <div class="column" id="new">
-                    <div class="range" v-for="range of ranges.new" :style="{top: (range.offset - 2) + 'px'}">
-                        <div class="start">{{ range.start }}</div>
+                    <div 
+                        class="range" 
+                        v-for="range of ranges.new" 
+                        :style="{top: (range.start - 2) + 'px', height: range.height + 'px'}"
+                    >
+                        <div class="start">{{ range.startIP }}</div>
                         <div class="company-name">{{ range.companyName }}</div>
                         <div class="company-address">{{ range.companyAddress }}</div>
-                        <div class="end">{{ range.end }}</div>
+                        <div class="end">{{ range.endIP }}</div>
                     </div>
                 </div>
                 

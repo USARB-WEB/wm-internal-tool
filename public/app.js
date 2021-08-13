@@ -2,50 +2,45 @@ var app = new Vue({
     el: '#app',
     data: {
         selectedCase: 1,
+        totalCases: 13,
         scale: {
-            lines: 20
+            lines: 20,
+            lineHeight: 25
         },
-        ranges: {
-            new: [
-                {
-                    companyName: "Microsoft super puper duper company INC",
-                    companyAddress: "United States of America, FLorida, Miami, 12345",
-                    start: "192.168.0.1",
-                    end: "192.168.0.100",
-                    offset: 150
-                }
-            ],
-            existing: [
-                {
-                    companyName: "Microsoft super puper duper company INC",
-                    companyAddress: "United States of America, FLorida, Miami, 12345",
-                    start: "192.168.0.1",
-                    end: "192.168.0.100",
-                    offset: 100,
-                    toUse: true
-                },
-                {
-                    companyName: "Microsoft super puper duper company INC",
-                    companyAddress: "United States of America, FLorida, Miami, 12345",
-                    start: "192.168.0.1",
-                    end: "192.168.0.100",
-                    offset: 125,
-                    toUse: true
-                }
-            ]
-        }
+        apiURL: "http://127.0.0.1:5500/db/",
+        ranges: {}
     },
     mounted(){
-        this.selectCase(1);
+        this.selectCase(7);
     },
     methods: {
+        calculateOffset(start){
+            return this.scale.lineHeight * start;
+        },
+        calculateHeight(start, end) {
+            return this.scale.lineHeight * ( end -  start);
+        },
         async selectCase(caseID){
             this.selectedCase = caseID;
             try{
-                let response = await fetch(`https://raw.githubusercontent.com/sergiuchilat/wm-internal-tool/master/db/case-${caseID}.json`);
+                let response = await fetch(`${this.apiURL}case-${caseID}.json`);
                 this.ranges = {};
                 this.ranges = Object.assign({}, await response.json());
-                console.log(this.ranges);
+                this.ranges.existing = this.ranges.existing.map(el => {
+                    return {
+                        ...el,
+                        start: this.calculateOffset(el.start),
+                        height: this.calculateHeight(el.start, el.end)
+                    }
+                });
+
+                this.ranges.new = this.ranges.new.map(el => {
+                    return {
+                        ...el,
+                        start: this.calculateOffset(el.start),
+                        height: this.calculateHeight(el.start, el.end)
+                    }
+                });
                 
             }catch(e){
                 console.log(e);

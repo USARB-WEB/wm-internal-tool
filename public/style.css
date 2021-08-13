@@ -46,6 +46,7 @@
 
 #titles .title{
     text-align: center;
+    font-size: 26px;
 }
 
 #columns .column{
@@ -62,7 +63,7 @@
     outline: 1px solid green;
     height: 100px;
     background: lightgoldenrodyellow;
-    position: relative;
+    position: absolute;
 }
 
 #columns #new .range{
@@ -84,6 +85,7 @@
     font-size: 22px;
     height: 30px;
     padding-left: 1em;
+    overflow: hidden;
 }
 
 #columns .column .range .company-address{
