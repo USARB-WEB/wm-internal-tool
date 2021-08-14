@@ -12,7 +12,7 @@ var app = new Vue({
         ranges: {}
     },
     mounted(){
-        this.selectCase(10);
+        this.selectCase(1);
     },
     methods: {
         calculateOffset(start){
