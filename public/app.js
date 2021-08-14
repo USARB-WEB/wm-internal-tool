@@ -2,7 +2,7 @@ var app = new Vue({
     el: '#app',
     data: {
         selectedCase: 0,
-        totalCases: 13,
+        totalCases: 15,
         scale: {
             lines: 20,
             lineHeight: 25
@@ -26,9 +26,6 @@ var app = new Vue({
             for(const newRange of this.ranges.new) {
                 for(const existingRange of this.ranges.existing) {                      
                     if(existingRange.start <= newRange.start && existingRange.end >= newRange.end){
-                        // console.log('existing', existingRange);
-                        // console.log('new', newRange);
-                        console.log('saving error');
                         return [
                             {
                                 "companyName": "ERROR",
@@ -36,13 +33,51 @@ var app = new Vue({
                                 "startIP": "",
                                 "endIP": "",
                                 "start": newRange.start,
-                                "end": newRange.end
+                                "end": newRange.end,
+                                type: 'error'
                             }
                         ]
+                    } else if(existingRange.start === newRange.start && existingRange.end < newRange.end){
+                        existingRange.type = 'existing';
+                        results.push(existingRange);
+                        newRange.start = existingRange.end;
+                        newRange.type = 'new';
+                        results.push(newRange);
+                    } else if(existingRange.end === newRange.end && existingRange.start > newRange.start){
+                        existingRange.type = 'existing';
+                        results.push(existingRange);
+                        newRange.end = existingRange.start;
+                        newRange.type = 'new';
+                        results.push(newRange);
+                    } else if(existingRange.start > newRange.start && existingRange.end < newRange.end){
+                        const newRangeFirst = Object.assign({}, newRange);
+                        const newRangeSecond = Object.assign({}, newRange);
+
+                        newRangeFirst.end = existingRange.start;
+                        newRangeSecond.start = existingRange.end;
+
+                        newRangeFirst.type = 'new';
+                        existingRange.type = 'existing';
+                        newRangeSecond.type = 'new';
+
+                        results.push(newRangeFirst);
+                        results.push(existingRange);
+                        results.push(newRangeSecond);
+                    } else if (existingRange.start < newRange.start && existingRange.end > newRange.start){
+                        existingRange.type = 'existing';
+                        results.push(existingRange);
+                        newRange.start = existingRange.end;
+                        newRange.type = 'new';
+                        results.push(newRange);
+                    } else if (existingRange.start < newRange.end && existingRange.end > newRange.end){
+                        existingRange.type = 'existing';
+                        results.push(existingRange);
+                        newRange.end = existingRange.start;
+                        newRange.type = 'new';
+                        results.push(newRange);
                     }
                 } 
             }
-            console.log('here');
             return results;
         },
         async selectCase(caseID){

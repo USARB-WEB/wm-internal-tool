@@ -6,7 +6,7 @@
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.100",
             "start": 1,
-            "end": 5,
+            "end": 9,
             "toUse": true
         },
         {
@@ -14,8 +14,8 @@
             "companyAddress": "United States of America, FLorida, Miami, 12345",
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.100",
-            "start": 5,
-            "end": 9,
+            "start": 9,
+            "end": 17,
             "toUse": true
         }
     ],
@@ -25,8 +25,8 @@
             "companyAddress": "United States of America, FLorida, Miami, 12345",
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.100",
-            "start": 3,
-            "end": 11
+            "start": 5,
+            "end": 13
         }
     ]
 }

@@ -86,7 +86,18 @@
 
 #columns #new .range{
     background: lightgreen;
+}
 
+.range-new{
+    background: lightgreen !important;
+}
+
+.range-existing{
+    background: rgba(240, 223, 177, 0.9) !important;
+}
+
+.range-error{
+    background-color: tomato !important;
 }
 
 #columns .column .range .start, 

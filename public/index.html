@@ -63,7 +63,8 @@
                     
                     <div class="column" id="result">
                         <div 
-                            class="range" 
+                            class="range"
+                            :class = "`range-${range.type}`"
                             v-for="range of ranges.results" 
                             :style="{top: (range.startOffset - 2) + 'px', height: range.height + 'px'}"
                         >
