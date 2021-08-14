@@ -1,7 +1,7 @@
 var app = new Vue({
     el: '#app',
     data: {
-        selectedCase: 0,
+        selectedCase: 1,
         totalCases: 15,
         scale: {
             lines: 20,
