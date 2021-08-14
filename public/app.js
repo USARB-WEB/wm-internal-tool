@@ -12,7 +12,7 @@ var app = new Vue({
         ranges: {}
     },
     mounted(){
-        this.selectCase(0);
+        this.selectCase(10);
     },
     methods: {
         calculateOffset(start){
@@ -23,15 +23,27 @@ var app = new Vue({
         },
         generateResults(){
             const results = [];
-
-            this.ranges.existing.forEach(existingRange => {  
-                this.ranges.new.forEach(newRange => {  
-                    if(existingRange.start < newRange.start){
-
+            for(const newRange of this.ranges.new) {
+                for(const existingRange of this.ranges.existing) {                      
+                    if(existingRange.start <= newRange.start && existingRange.end >= newRange.end){
+                        // console.log('existing', existingRange);
+                        // console.log('new', newRange);
+                        console.log('saving error');
+                        return [
+                            {
+                                "companyName": "ERROR",
+                                "companyAddress": "this combination can't be saved",
+                                "startIP": "",
+                                "endIP": "",
+                                "start": newRange.start,
+                                "end": newRange.end
+                            }
+                        ]
                     }
-                }); 
-            });
-            console.log(results);
+                } 
+            }
+            console.log('here');
+            return results;
         },
         async selectCase(caseID){
             if(!caseID){
@@ -57,7 +69,13 @@ var app = new Vue({
                         height: this.calculateHeight(el.start, el.end)
                     }
                 });
-                this.generateResults();
+                this.ranges.results = this.generateResults().map(el => {
+                    return {
+                        ...el,
+                        startOffset: this.calculateOffset(el.start),
+                        height: this.calculateHeight(el.start, el.end)
+                    }
+                });
                 
             }catch(e){
                 console.log(e);
