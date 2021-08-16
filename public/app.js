@@ -14,12 +14,23 @@ var app = new Vue({
     computed:{
         resultingRanges() {
             return this.ranges.results?.map(range => {
-                return this.ranges.existing.find(existingRange => existingRange.index === range.new.index)?.selected && range.existing ? range.existing : range.new;
+                if(!range.existing){
+                    return range.new;
+                }
+                return this
+                    .ranges
+                    .existing
+                    .find(
+                        existingRange => 
+                            existingRange.index === range.new?.index 
+                            || 
+                            existingRange.index.includes(range.new?.index))?.selected ? 
+                            range.existing : range.new;
             });
         }
     },
     mounted(){
-        this.selectCase(4);
+        this.selectCase(5);
     },
     methods: {
         calculateOffset(start){

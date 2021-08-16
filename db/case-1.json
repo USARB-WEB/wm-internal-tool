@@ -1,7 +1,7 @@
 {
     "existing": [
         {
-            "companyName": "Microsoft super puper duper company INC",
+            "companyName": "Company 1",
             "companyAddress": "United States of America, FLorida, Miami, 12345",
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.100",
@@ -13,8 +13,8 @@
     ],
     "new": [
         {
-            "companyName": "Microsoft super puper duper company INC",
-            "companyAddress": "United States of America, FLorida, Miami, 12345",
+            "companyName": "Company 2",
+            "companyAddress": "Germany, Berlin, 12345",
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.100",
             "start": 1,
@@ -22,6 +22,27 @@
         }
     ],
     "results": [
-        
+        {
+            "existing": {
+                "companyName": "Company 1",
+                "companyAddress": "United States of America, FLorida, Miami, 12345",
+                "startIP": "192.168.0.1",
+                "endIP": "192.168.0.100",
+                "start": 1,
+                "end": 9,
+                "type": "existing",
+                "index": 0
+            },
+            "new": {
+                "companyName": "Company 2",
+                "companyAddress": "Germany, Berlin, 12345",
+                "startIP": "192.168.0.1",
+                "endIP": "192.168.0.100",
+                "start": 1,
+                "end": 9,
+                "type": "new",
+                "index": 0
+            }
+        }
     ]
 }

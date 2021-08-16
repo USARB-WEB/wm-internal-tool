@@ -62,9 +62,13 @@
                     </div>
                     
                     <div class="column" id="result">
+                        <!-- <pre>
+                            {{resultingRanges}}
+                        </pre> -->
                         <template v-if=resultingRanges?.length>
-                            <div 
-                                v-for="range of resultingRanges"
+                            <template v-for="range of resultingRanges">
+                                <div 
+                                v-if="range"
                                 class="range"
                                 :class = "`range-${range.type}`"                            
                                 :style="{top: (range.startOffset - 2) + 'px', height: range.height + 'px'}"
@@ -74,6 +78,8 @@
                                     <div class="company-address">{{ range.companyAddress }}</div>
                                     <div class="end">{{ range.endIP }}</div>
                             </div>
+                            </template>
+                            
                         </template>
                         <div v-else class="range-error">
                             Error. This combination can't be saved
