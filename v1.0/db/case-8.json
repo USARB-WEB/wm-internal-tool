@@ -1,0 +1,32 @@
+{
+    "existing": [
+        {
+            "companyName": "Microsoft super puper duper company INC",
+            "companyAddress": "United States of America, FLorida, Miami, 12345",
+            "startIP": "192.168.0.1",
+            "endIP": "192.168.0.100",
+            "start": 1,
+            "end": 9,
+            "toUse": true
+        },
+        {
+            "companyName": "Microsoft super puper duper company INC",
+            "companyAddress": "United States of America, FLorida, Miami, 12345",
+            "startIP": "192.168.0.1",
+            "endIP": "192.168.0.100",
+            "start": 9,
+            "end": 17,
+            "toUse": true
+        }
+    ],
+    "new": [
+        {
+            "companyName": "Microsoft super puper duper company INC",
+            "companyAddress": "United States of America, FLorida, Miami, 12345",
+            "startIP": "255.255.255.255",
+            "endIP": "255.255.255.255",
+            "start": 5,
+            "end": 13
+        }
+    ]
+}
