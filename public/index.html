@@ -34,10 +34,10 @@
                     <div class="column" id="existing">
                         <div 
                             class="range" 
-                            :class="{'disabled-range': !range.toUse}" 
+                            :class="{'disabled-range': !range.selected}" 
                             v-for="range of ranges.existing" 
                             :style="{top: (range.startOffset - 2) + 'px', height: range.height + 'px'}"
-                            @click="range.toUse = !range.toUse"
+                            @click="range.selected = !range.selected"
                             title="Click to enable/disable selection"
                         >
                             <div class="start">{{ range.startIP }}</div>
@@ -63,15 +63,15 @@
                     
                     <div class="column" id="result">
                         <div 
+                            v-for="range of resultingRanges"
                             class="range"
-                            :class = "`range-${range.type}`"
-                            v-for="range of ranges.results" 
+                            :class = "`range-${range.type}`"                            
                             :style="{top: (range.startOffset - 2) + 'px', height: range.height + 'px'}"
-                        >
-                            <div class="start">{{ range.startIP }}</div>
-                            <div class="company-name">{{ range.companyName }}</div>
-                            <div class="company-address">{{ range.companyAddress }}</div>
-                            <div class="end">{{ range.endIP }}</div>
+                            >
+                                <div class="start">{{ range.startIP }}</div>
+                                <div class="company-name">{{ range.companyName }}</div>
+                                <div class="company-address">{{ range.companyAddress }}</div>
+                                <div class="end">{{ range.endIP }}</div>
                         </div>
                     </div>
                 </div>            
