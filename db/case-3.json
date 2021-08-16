@@ -1,23 +1,76 @@
 {
     "existing": [
         {
-            "companyName": "Microsoft super puper duper company INC",
+            "companyName": "Company 1",
             "companyAddress": "United States of America, FLorida, Miami, 12345",
             "startIP": "192.168.0.1",
-            "endIP": "192.168.0.100",
+            "endIP": "192.168.0.50",
             "start": 5,
             "end": 9,
-            "toUse": true
+            "selected": true,
+            "index": 1
         }
     ],
     "new": [
         {
-            "companyName": "Microsoft super puper duper company INC",
-            "companyAddress": "United States of America, FLorida, Miami, 12345",
-            "startIP": "255.255.255.255",
-            "endIP": "255.255.255.255",
+            "companyName": "Company 2",
+            "companyAddress": "Germany, Berlin, 12345",
+            "startIP": "192.168.0.1",
+            "endIP": "192.168.0.100",
             "start": 1,
-            "end": 13
+            "end": 13,
+            "index": 0
         }
+    ],
+    "results": [
+        {
+            "existing": null,
+            "new": {
+                "companyName": "Company 2",
+                "companyAddress": "Germany, Berlin, 12345",
+                "startIP": "192.168.0.1",
+                "endIP": "192.168.0.50",
+                "start": 1,
+                "end": 5,
+                "type": "new",
+                "index": 0
+            }
+        },
+        {
+            "existing": {
+                "companyName": "Company 1",
+                "companyAddress": "United States of America, FLorida, Miami, 12345",
+                "startIP": "192.168.0.1",
+                "endIP": "192.168.0.50",
+                "start": 5,
+                "end": 9,
+                "type": "existing",
+                "index": 1
+            },
+            "new": {
+                "companyName": "Company 2",
+                "companyAddress": "Germany, Berlin, 12345",
+                "startIP": "192.168.0.1",
+                "endIP": "192.168.0.50",
+                "start": 5,
+                "end": 9,
+                "type": "new",
+                "index": 1
+            }
+        },
+        {
+            "existing": null,
+            "new": {
+                "companyName": "Company 2",
+                "companyAddress": "Germany, Berlin, 12345",
+                "startIP": "192.168.0.51",
+                "endIP": "192.168.0.100",
+                "start": 9,
+                "end": 13,
+                "type": "new",
+                "index": 2
+            }
+        }
+       
     ]
 }
