@@ -13,6 +13,7 @@ var app = new Vue({
     },
     computed:{
         resultingRanges() {
+            console.log(this.ranges.results);
             return this.ranges.results?.map(range => {
                 if(!range.existing){
                     return range.new;
@@ -30,7 +31,7 @@ var app = new Vue({
         }
     },
     mounted(){
-        this.selectCase(5);
+        this.selectCase(6);
     },
     methods: {
         calculateOffset(start){
