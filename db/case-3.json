@@ -8,7 +8,7 @@
             "start": 5,
             "end": 9,
             "selected": true,
-            "index": 1
+            "index": [1]
         }
     ],
     "new": [
@@ -19,11 +19,12 @@
             "endIP": "192.168.0.100",
             "start": 1,
             "end": 13,
-            "index": 0
+            "index": [0]
         }
     ],
     "results": [
         {
+            "index": 0,
             "existing": null,
             "new": {
                 "companyName": "Company 2",
@@ -32,11 +33,11 @@
                 "endIP": "192.168.0.29",
                 "start": 1,
                 "end": 5,
-                "type": "new",
-                "index": 0
+                "type": "new"
             }
         },
         {
+            "index": 1,
             "existing": {
                 "companyName": "Company 1",
                 "companyAddress": "United States of America, FLorida, Miami, 12345",
@@ -44,21 +45,20 @@
                 "endIP": "192.168.0.50",
                 "start": 5,
                 "end": 9,
-                "type": "existing",
-                "index": 1
+                "type": "existing"
             },
             "new": {
                 "companyName": "Company 2",
                 "companyAddress": "Germany, Berlin, 12345",
-                "startIP": "192.168.0.1",
+                "startIP": "192.168.0.30",
                 "endIP": "192.168.0.50",
                 "start": 5,
                 "end": 9,
-                "type": "new",
-                "index": 1
+                "type": "new"
             }
         },
         {
+            "index": 2,
             "existing": null,
             "new": {
                 "companyName": "Company 2",
@@ -67,8 +67,7 @@
                 "endIP": "192.168.0.100",
                 "start": 9,
                 "end": 13,
-                "type": "new",
-                "index": 2
+                "type": "new"
             }
         }
        

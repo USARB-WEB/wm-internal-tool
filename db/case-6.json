@@ -18,33 +18,34 @@
             "startIP": "192.168.0.30",
             "endIP": "192.168.0.50",
             "start": 5,
-            "end": 9
+            "end": 9,
+            "index": [1]
         }
     ],
     "results": [
         {
+            "index": 0,
             "existing": {
                 "companyName": "Company 1",
                 "companyAddress": "United States of America, FLorida, Miami, 12345",
                 "startIP": "192.168.0.1",
-                "endIP": "192.168.0.100",
+                "endIP": "192.168.0.29",
                 "start": 1,
                 "end": 5,
-                "type": "existing",
-                "index": 0
+                "type": "existing"
             },
             "new": null
         },
         {
+            "index": 1,
             "existing": {
                 "companyName": "Company 1",
                 "companyAddress": "United States of America, FLorida, Miami, 12345",
                 "startIP": "192.168.0.30",
-                "endIP": "192.168.0.100",
+                "endIP": "192.168.0.50",
                 "start": 5,
                 "end": 9,
-                "type": "existing",
-                "index": 1
+                "type": "existing"
             },
             "new": {
                 "companyName": "Company 2",
@@ -53,20 +54,19 @@
                 "endIP": "192.168.0.50",
                 "start": 5,
                 "end": 9,
-                "type": "new",
-                "index": 1
+                "type": "new"
             }
         },
         {
+            "index": 2,
             "existing": {
                 "companyName": "Company 1",
                 "companyAddress": "United States of America, FLorida, Miami, 12345",
-                "startIP": "192.168.0.1",
+                "startIP": "192.168.0.51",
                 "endIP": "192.168.0.100",
                 "start": 9,
                 "end": 13,
-                "type": "existing",
-                "index": 2
+                "type": "existing"
             },
             "new": null
         }

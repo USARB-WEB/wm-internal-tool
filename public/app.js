@@ -2,9 +2,9 @@ var app = new Vue({
     el: '#app',
     data: {
         selectedCase: 1,
-        totalCases: 15,
+        totalCases: 11,
         scale: {
-            lines: 20,
+            lines: 22,
             lineHeight: 25
         },
         apiURL: "http://127.0.0.1:5500/db/",
@@ -12,26 +12,18 @@ var app = new Vue({
         ranges: {}
     },
     computed:{
-        resultingRanges() {
-            console.log(this.ranges.results);
+        resultingRanges() {        
             return this.ranges.results?.map(range => {
-                if(!range.existing){
-                    return range.new;
+                console.log(`index:${range.index}`, range);
+                if(!range.new || this.ranges.existing.find(el => el.index.includes(range.index))?.selected){
+                    return range.existing;
                 }
-                return this
-                    .ranges
-                    .existing
-                    .find(
-                        existingRange => 
-                            existingRange.index === range.new?.index 
-                            || 
-                            existingRange.index.includes(range.new?.index))?.selected ? 
-                            range.existing : range.new;
+                return range.new;
             });
         }
     },
     mounted(){
-        this.selectCase(6);
+        this.selectCase(1);
     },
     methods: {
         calculateOffset(start){
@@ -82,11 +74,12 @@ var app = new Vue({
                         });
                     }
                     return {
+                        index: el.index,
                         existing: existingRange,
                         new: newRange
                     }
                 });
-                console.log(this.ranges.results);
+                //console.log(this.ranges.results);
             }catch(e){
                 console.log(e);
             }

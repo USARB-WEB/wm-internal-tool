@@ -18,18 +18,20 @@
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.50",
             "start": 1,
-            "end": 5
+            "end": 5,
+            "index": [0]
         }
     ],
     "results": [
         {
+            "index": 0,
             "existing": {
                 "companyName": "Company 1",
                 "companyAddress": "United States of America, FLorida, Miami, 12345",
                 "startIP": "192.168.0.1",
-                "endIP": "192.168.0.100",
+                "endIP": "192.168.0.50",
                 "start": 1,
-                "end": 9,
+                "end": 5,
                 "type": "existing",
                 "index": 0
             },
@@ -40,20 +42,19 @@
                 "endIP": "192.168.0.50",
                 "start": 1,
                 "end": 5,
-                "type": "new",
-                "index": 0
+                "type": "new"
             }
         },
         {
+            "index": 1,
             "existing": {
                 "companyName": "Company 1",
                 "companyAddress": "United States of America, FLorida, Miami, 12345",
-                "startIP": "192.168.0.1",
+                "startIP": "192.168.0.51",
                 "endIP": "192.168.0.100",
-                "start": 1,
-                "end": 5,
-                "type": "existing",
-                "index": 1
+                "start": 5,
+                "end": 9,
+                "type": "existing"
             },
             "new": null
         }

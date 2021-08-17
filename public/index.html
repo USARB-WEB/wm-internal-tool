@@ -46,6 +46,9 @@
                             </div>
                             <div class="company-address">{{ range.companyAddress }}</div>
                             <div class="end">{{ range.endIP }}</div>
+                            <!-- <div v-if="!range.selected" class="will-be-removed">
+                                <span>Will be removed from database</span>
+                            </div> -->
                         </div>
                     </div>
                     <div class="column" id="new">
@@ -62,9 +65,9 @@
                     </div>
                     
                     <div class="column" id="result">
-                        <pre>
+                        <!-- <pre>
                             {{resultingRanges}}
-                        </pre>
+                        </pre> -->
                         <template v-if=resultingRanges?.length>
                             <template v-for="range of resultingRanges">
                                 <div 

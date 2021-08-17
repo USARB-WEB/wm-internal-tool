@@ -1,23 +1,62 @@
 {
     "existing": [
         {
-            "companyName": "Microsoft super puper duper company INC",
+            "companyName": "Company 1",
             "companyAddress": "United States of America, FLorida, Miami, 12345",
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.100",
             "start": 1,
             "end": 9,
-            "toUse": true
+            "selected": true,
+            "index": [0, 1]
         }
     ],
     "new": [
         {
-            "companyName": "Microsoft super puper duper company INC",
-            "companyAddress": "United States of America, FLorida, Miami, 12345",
-            "startIP": "255.255.255.255",
-            "endIP": "255.255.255.255",
+            "companyName": "Company 2",
+            "companyAddress": "Germany, Berlin, 12345",
+            "startIP": "192.168.0.50",
+            "endIP": "192.168.0.100",
             "start": 5,
-            "end": 9
+            "end": 9,
+            "index": [1]
         }
+    ],
+    "results": [
+        {
+            "index": 0,
+            "existing": {
+                "companyName": "Company 1",
+                "companyAddress": "United States of America, FLorida, Miami, 12345",
+                "startIP": "192.168.0.1",
+                "endIP": "192.168.0.49",
+                "start": 1,
+                "end": 5,
+                "type": "existing"
+            },
+            "new": null
+        },
+        {
+            "index": 1,
+            "existing": {
+                "companyName": "Company 1",
+                "companyAddress": "United States of America, FLorida, Miami, 12345",
+                "startIP": "192.168.0.50",
+                "endIP": "192.168.0.100",
+                "start": 5,
+                "end": 9,
+                "type": "existing"
+            },
+            "new": {
+                "companyName": "Company 2",
+                "companyAddress": "Germany, Berlin, 12345",
+                "startIP": "192.168.0.50",
+                "endIP": "192.168.0.100",
+                "start": 5,
+                "end": 9,
+                "type": "new"
+            }
+        }
+       
     ]
 }

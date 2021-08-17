@@ -55,7 +55,7 @@
 
 #columns .column{
     outline: 1px solid gray;
-    height: 525px;
+    height: 575px;
     padding: 0;
     position: relative;
     box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.75);
@@ -78,6 +78,24 @@
 #columns .column .range:hover{
     opacity: 0.9;
     z-index: 100;
+}
+
+#columns .column .range .will-be-removed{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+}
+
+#columns .column .range .will-be-removed span{
+    display: block;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: middle;
 }
 
 #columns #existing .range{
