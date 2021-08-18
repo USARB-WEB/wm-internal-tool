@@ -6,7 +6,7 @@
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.100",
             "start": 1,
-            "end": 9,
+            "end": 5,
             "selected": true,
             "index": [0]
         }
@@ -18,7 +18,7 @@
             "startIP": "192.168.0.1",
             "endIP": "192.168.0.100",
             "start": 1,
-            "end": 9,
+            "end": 5,
             "index": [0]
         }
     ],
@@ -31,7 +31,7 @@
                 "startIP": "192.168.0.1",
                 "endIP": "192.168.0.100",
                 "start": 1,
-                "end": 9,
+                "end": 5,
                 "type": "existing"
             },
             "new": {
@@ -40,7 +40,7 @@
                 "startIP": "192.168.0.1",
                 "endIP": "192.168.0.100",
                 "start": 1,
-                "end": 9,
+                "end": 5,
                 "type": "new"
             }
         }
