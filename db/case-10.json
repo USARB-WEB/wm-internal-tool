@@ -11,7 +11,7 @@
             "index": [0, 1]
         },
         {
-            "companyName": "Company 1",
+            "companyName": "Company 2",
             "companyAddress": "United States of America, FLorida, Miami, 12345",
             "startIP": "192.168.0.101",
             "endIP": "192.168.0.200",
@@ -23,7 +23,7 @@
     ],
     "new": [
         {
-            "companyName": "Company 2",
+            "companyName": "Company 3",
             "companyAddress": "Germany, Berlin, 12345",
             "startIP": "192.168.0.50",
             "endIP": "192.168.0.150",
@@ -58,7 +58,7 @@
                 "type": "existing"
             },
             "new": {
-                "companyName": "Company 2",
+                "companyName": "Company 3",
                 "companyAddress": "Germany, Berlin, 12345",
                 "startIP": "192.168.0.50",
                 "endIP": "192.168.0.100",
@@ -70,7 +70,7 @@
         {
             "index": 2,
             "existing": {
-                "companyName": "Company 1",
+                "companyName": "Company 2",
                 "companyAddress": "United States of America, FLorida, Miami, 12345",
                 "startIP": "192.168.0.101",
                 "endIP": "192.168.0.150",
@@ -79,7 +79,7 @@
                 "type": "existing"
             },
             "new": {
-                "companyName": "Company 2",
+                "companyName": "Company 3",
                 "companyAddress": "Germany, Berlin, 12345",
                 "startIP": "192.168.0.101",
                 "endIP": "192.168.0.150",
@@ -91,7 +91,7 @@
         {
             "index": 3,
             "existing": {
-                "companyName": "Company 1",
+                "companyName": "Company 2",
                 "companyAddress": "United States of America, FLorida, Miami, 12345",
                 "startIP": "192.168.0.151",
                 "endIP": "192.168.0.200",

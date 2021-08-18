@@ -1,14 +1,15 @@
 var app = new Vue({
     el: '#app',
     data: {
-        selectedCase: 1,
-        totalCases: 11,
+        selectedCase: 0,
+        totalCases: 12,
         scale: {
-            lines: 22,
+            lines: 42,
             lineHeight: 25
         },
-        //apiURL: "http://127.0.0.1:5500/db/",
-        apiURL: "https://raw.githubusercontent.com/sergiuchilat/wm-internal-tool/master/db/",
+        // apiURL: "http://127.0.0.1:5500/db/",
+        apiURL: "http://localhost:63344/wm/wm-internal-tool/db/",
+        // apiURL: "https://raw.githubusercontent.com/sergiuchilat/wm-internal-tool/master/db/",
         ranges: {}
     },
     computed:{
@@ -23,7 +24,7 @@ var app = new Vue({
         }
     },
     mounted(){
-        this.selectCase(1);
+        this.selectCase(10);
     },
     methods: {
         calculateOffset(start){
