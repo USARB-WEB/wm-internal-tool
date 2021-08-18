@@ -16,15 +16,30 @@ var app = new Vue({
         resultingRanges() {        
             return this.ranges.results?.map(range => {
                 console.log(`index:${range.index}`, range);
-                if(!range.new || this.ranges.existing.find(el => el.index.includes(range.index))?.selected){
+                // if(!range.new || this.ranges.existing.find(el => el.index.includes(range.index))?.selected){
+                //     return range.existing;
+                // }
+
+                if(!this.ranges.existing.find(el => el.index.includes(range.index))){
+                    return range.new;
+                }
+
+                if(this.ranges.existing.find(el => el.index.includes(range.index))?.mode === 'remove'){
+                    return range.new;
+                }
+                if(this.ranges.existing.find(el => el.index.includes(range.index))?.mode === 'rewrite'){
                     return range.existing;
                 }
-                return range.new;
+                if(range.new && this.ranges.existing.find(el => el.index.includes(range.index))?.mode === 'intersect'){
+                    return range.new;
+                }
+                
+                return range.existing;
             });
         }
     },
     mounted(){
-        this.selectCase(1);
+        this.selectCase(6);
         
     },
     methods: {
@@ -33,6 +48,9 @@ var app = new Vue({
         },
         calculateHeight(start, end) {
             return this.scale.lineHeight * ( end -  start);
+        },
+        removeExisting(){
+
         },
         async selectCase(caseID){
             if(!caseID){
@@ -47,7 +65,8 @@ var app = new Vue({
                     return {
                         ...el,
                         startOffset: this.calculateOffset(el.start),
-                        height: this.calculateHeight(el.start, el.end)
+                        height: this.calculateHeight(el.start, el.end),
+                        mode: "intersect"
                     }
                 });
 
@@ -65,7 +84,8 @@ var app = new Vue({
                         existingRange = Object.assign({}, {
                             ...el.existing,
                             startOffset: this.calculateOffset(el.existing.start),
-                            height: this.calculateHeight(el.existing.start, el.existing.end)
+                            height: this.calculateHeight(el.existing.start, el.existing.end),
+                            removed: false
                         });
                     }
                     if(el.new) {

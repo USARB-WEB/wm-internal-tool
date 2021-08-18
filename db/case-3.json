@@ -8,6 +8,7 @@
             "start": 5,
             "end": 9,
             "selected": true,
+            "removed": false,
             "index": [1]
         }
     ],

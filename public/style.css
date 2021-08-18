@@ -95,7 +95,6 @@
     display: block;
     text-align: center;
     line-height: 100%;
-    vertical-align: middle;
 }
 
 #columns #existing .range{
@@ -142,6 +141,21 @@
     right: 0;
 }
 
+#columns .column .range .start .actions{
+    float: left;
+    height: 25px;
+    overflow: hidden;
+}
+
+#columns .column .range .start button.remove{
+    background-color: red;
+    font-size: 13px;
+}
+#columns .column .range .start button.add{
+    background-color: green;
+    font-size: 13px;
+}
+
 #columns .column .range .company-name{
     font-size: 18px;
     height: 30px;
@@ -159,4 +173,9 @@
 .disabled-range{
     color: grey;
     background-color: rgba(0,0,0,0.15) !important;
+}
+
+.removed-range{
+    color: red;
+    background-color: rgba(246, 11, 11, 0.15) !important;
 }

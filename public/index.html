@@ -32,15 +32,36 @@
                 </div>
                 <div id="columns">
                     <div class="column" id="existing">
+                        
                         <div 
                             class="range" 
-                            :class="{'disabled-range': !range.selected}" 
+                            :class="{'disabled-range': range.mode == 'intersect', 'removed-range': range.mode == 'remove'}" 
                             v-for="range of ranges.existing" 
                             :style="{top: (range.startOffset - 2) + 'px', height: range.height + 'px'}"
-                            @click="range.selected = !range.selected"
+                            @click="range.selected = range.selected"
                             title="Click to enable/disable selection"
                         >
-                            <div class="start">{{ range.startIP }}</div>
+                            <div class="start">
+                                <div class="actions">
+                                    <labe><input type="radio" v-model="range.mode" value="rewrite" > Force use</label>
+                                    <label><input type="radio" v-model="range.mode" value="intersect"> Only not intersected</label>
+                                    <label><input type="radio" v-model="range.mode" value="remove"> Remove</label>
+                                    <button 
+                                        class="remove" 
+                                        title="Remove completely"
+                                        v-show="!range.removed && false"
+                                        @click="range.removed = true; range.selected = false"
+                                    > x </button>
+                                    <button 
+                                        class="add" 
+                                        title="Remove completely"
+                                        v-show="range.removed && false"
+                                        @click="range.removed = false"
+                                    > + </button>
+                                    <input v-if="false" type="checkbox" v-model="range.selected" title="Remove intersection">
+                                </div>
+                                {{ range.startIP }}
+                            </div>
                             <div class="company-name">
                                 {{ range.companyName }}
                             </div>
