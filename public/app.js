@@ -24,11 +24,8 @@ var app = new Vue({
         }
     },
     mounted(){
-<<<<<<< HEAD
-        this.selectCase(13);
-=======
-        this.selectCase(10);
->>>>>>> a67017aec7f67f674871e5408590f6a968fa8b58
+        this.selectCase(1);
+        
     },
     methods: {
         calculateOffset(start){
